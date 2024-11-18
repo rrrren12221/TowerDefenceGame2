@@ -11,6 +11,12 @@ public class LoadManager : MonoBehaviour
         SceneManager.LoadScene(GameScene);
     }
 
+    //タイトルシーンへ移動
+    public void LoadTitleScene(string TitleScene)
+    {
+        SceneManager.LoadScene(TitleScene);
+    }
+
     //ゲームを終了
     public void EndGame()
     {

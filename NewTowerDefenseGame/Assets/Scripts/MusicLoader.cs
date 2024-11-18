@@ -7,8 +7,11 @@ using SFB;  // StandaloneFileBrowserの名前空間
 
 public class MusicLoader : MonoBehaviour
 {
-    public AudioSource audioSource; // 音楽を再生するAudioSource
+    public AudioSource audioSource;  // 音楽を再生するAudioSource
     public Button loadMusicButton;  // 音楽を読み込むボタン
+    public Text statusText;  // ステータステキスト（ロード中の通知など）
+
+    private bool isLoading = false;  // ロード中かどうかを示すフラグ
 
     void Start()
     {
@@ -19,12 +22,18 @@ public class MusicLoader : MonoBehaviour
     // ファイル選択ダイアログを開く
     public void OpenFileExplorer()
     {
-        var paths = StandaloneFileBrowser.OpenFilePanel("Select Music File", "", "", false);
+        if (isLoading)
+        {
+            Debug.Log("Already loading music.");
+            return;
+        }
+
+        var paths = StandaloneFileBrowser.OpenFilePanel("Select Music File", "", "mp3", true);  // 拡張子をmp3に設定、複数ファイル選択を有効にする
 
         if (paths.Length > 0)
         {
-            string filePath = paths[0]; // 選択されたファイルのパスを取得
-            PlayMusic(filePath); // 音楽を再生
+            // ファイルが選ばれたら再生
+            StartCoroutine(PlayMusic(paths));
         }
         else
         {
@@ -32,24 +41,37 @@ public class MusicLoader : MonoBehaviour
         }
     }
 
-    // 音楽を再生する
-    void PlayMusic(string filePath)
+    // 複数ファイルの音楽を再生する
+    IEnumerator PlayMusic(string[] filePaths)
     {
-        if (File.Exists(filePath))
+        if (filePaths.Length == 0) yield break;
+
+        isLoading = true;
+        statusText.text = "Loading music...";  // ステータス更新
+
+        foreach (var filePath in filePaths)
         {
-            StartCoroutine(LoadAudio(filePath));
+            if (File.Exists(filePath))
+            {
+                Debug.Log("Loading: " + filePath);
+                yield return StartCoroutine(LoadAudio(filePath));
+            }
+            else
+            {
+                Debug.LogError("File not found: " + filePath);
+            }
         }
-        else
-        {
-            Debug.LogError("File not found: " + filePath);
-        }
+
+        isLoading = false;
+        statusText.text = "Music loaded";  // ステータス更新
     }
 
-    // AudioClipを非同期で読み込む
+    // 音楽を再生する
     IEnumerator LoadAudio(string filePath)
     {
         string url = "file://" + filePath;
-        UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);  // AudioType.MPEGに変更
+        UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);  // AudioType.MPEGを使用
+
         yield return audioRequest.SendWebRequest();
 
         if (audioRequest.result == UnityWebRequest.Result.Success)
@@ -61,9 +83,7 @@ public class MusicLoader : MonoBehaviour
         else
         {
             Debug.LogError("Error loading audio file: " + audioRequest.error);
+            statusText.text = "Error loading music: " + audioRequest.error;  // エラーステータス更新
         }
     }
-
-
-
 }
