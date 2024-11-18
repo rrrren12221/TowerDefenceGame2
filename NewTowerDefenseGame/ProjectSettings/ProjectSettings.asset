@@ -769,11 +769,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 019061fe-1387-4581-9609-2db0eedd6abc
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: NewTowerDefenseGame
+  organizationId: xiyeliang737
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
