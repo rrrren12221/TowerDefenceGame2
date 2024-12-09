@@ -17,6 +17,11 @@ public class LoadManager : MonoBehaviour
         SceneManager.LoadScene(TitleScene);
     }
 
+    public void LoadSceneRetry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     //ƒQ[ƒ€‚ğI—¹
     public void EndGame()
     {

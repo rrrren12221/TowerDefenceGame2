@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &63627487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   coinLevel: 0
   maxCoin: 640000002c01000020030000
   nowCoin: 0
-  coinSpeed: 6
+  coinSpeed: 8
 --- !u!114 &63627488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +303,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307eae295f3401c45b093731b7914804, type: 3}
+--- !u!114 &257565997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4600369012260013869, guid: 307eae295f3401c45b093731b7914804, type: 3}
+  m_PrefabInstance: {fileID: 257565996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654b3c46d7988584a87e46fd0721d5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &443555150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,9 +1073,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4286151884017661460, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 257565997}
+    - target: {fileID: 4286151884017661460, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneRetry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286151884017661460, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286151884017661460, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8562453751803543162, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562453751803543162, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562453751803543163, guid: bee942de0ed6e0b459aab64d980a923d, type: 3}
       propertyPath: m_RootOrder
