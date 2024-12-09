@@ -22,6 +22,11 @@ public class LoadManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void Loadnishi(string NishiScene)
+    {
+        SceneManager.LoadScene(NishiScene);
+    }
+
     //ƒQ[ƒ€‚ğI—¹
     public void EndGame()
     {
