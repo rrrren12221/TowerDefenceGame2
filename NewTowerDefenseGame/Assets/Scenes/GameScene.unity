@@ -2296,12 +2296,12 @@ GameObject:
   - component: {fileID: 1871709225}
   - component: {fileID: 1871709228}
   m_Layer: 5
-  m_Name: MonsterButton
+  m_Name: Slime_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871709224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2318,10 +2318,10 @@ RectTransform:
   m_Father: {fileID: 1694921296}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 140, y: -100}
+  m_SizeDelta: {x: 200, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871709225
 MonoBehaviour:
@@ -2635,4 +2635,4 @@ MonoBehaviour:
   coinLevel: 0
   maxCoin: 640000002c01000020030000
   nowCoin: 0
-  coinSpeed: 6
+  coinSpeed: 8
