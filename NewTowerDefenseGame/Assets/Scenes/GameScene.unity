@@ -585,6 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5490282982191647796, guid: 26bc9ebc1c4524e719b9fc5259497e7e, type: 3}
+  price: 100
+  priceText: {fileID: 912760687}
 --- !u!1 &386204007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  price: 0
+  priceText: {fileID: 1714433564}
 --- !u!1 &1568212566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +1904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2246778328608444764, guid: b1ce365d058dc4f22aba500ea2055d1d, type: 3}
+  price: 200
+  priceText: {fileID: 1189332521}
 --- !u!1 &1694921295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,6 +2280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3480115969879281183, guid: b0d97e297723645cf9713904291dca0b, type: 3}
+  price: 120
+  priceText: {fileID: 124734648}
 --- !u!1 &1871709223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,6 +2430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3960520771230231844, guid: d7f9772fd5247b14bb434bb929c808b5, type: 3}
+  price: 80
+  priceText: {fileID: 1821241643}
 --- !u!1 &1910846678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,7 +2632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 895790967}
-  coinLevel: 3
-  maxCoin: 64000000c80000002c010000
+  coinLevel: 0
+  maxCoin: 640000002c01000020030000
   nowCoin: 0
-  coinSpeed: 8
+  coinSpeed: 6
