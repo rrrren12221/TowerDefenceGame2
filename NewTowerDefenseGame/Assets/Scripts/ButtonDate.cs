@@ -14,6 +14,9 @@ public class ButtonDate : MonoBehaviour
 
     Button button => GetComponent<Button>();
 
+    [SerializeField] Slider gaugeBar;
+    bool isclicked = false;
+
     private void Start()
     {
         priceText.text = price.ToString() + "円";
@@ -42,8 +45,10 @@ public class ButtonDate : MonoBehaviour
         //Playerの召喚
         PlayerSpawn();
         //ボタンを押せないようにする
+        isclicked = true;
 
         //ゲージを出す
+        StartCoroutine(SliderUpdate());
     }
     
     void PlayerSpawn()
@@ -51,5 +56,25 @@ public class ButtonDate : MonoBehaviour
         float y = Random.Range(-0.8f, -1.7f);
         SpriteRenderer pl = Instantiate(player, new Vector3(6.6f, y, 0), transform.rotation);
         pl.sortingOrder = (int)(-y * 10);
+    }
+
+    IEnumerator SliderUpdate()
+    {
+        //ゲージを表示
+        gaugeBar.value = 0;
+        gaugeBar.gameObject.SetActive(true);
+
+        //時間経過でゲージを進める
+        while (gaugeBar.value < gaugeBar.maxValue)
+        {
+            gaugeBar.value++;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        //ゲージを非表示
+        gaugeBar.gameObject.SetActive(false);
+
+        //またボタンを押せるようにする
+        isclicked = false;
     }
 }
