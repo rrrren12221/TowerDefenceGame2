@@ -24,7 +24,7 @@ public class ButtonDate : MonoBehaviour
 
     private void Update()
     {
-        if (wallet.nowCoin >= price) 
+        if (wallet.nowCoin >= price && !isclicked) 
         {
             //ƒ{ƒ^ƒ“‚ð‰Ÿ‚¹‚é
             button.interactable = true;
