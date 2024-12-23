@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    private bool isPaused = false;
+    [SerializeField] private GameObject pauseMenuCanvas; // PauseMenuPanelを設定
+    private bool isPaused;
+
+    void Start()
+    {
+        // 初期状態を設定
+        isPaused = pauseMenuCanvas.activeSelf;
+        UpdateTimeScale();
+    }
 
     void Update()
     {
-        // Escapeキーが押されたらポーズを切り替え
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // pauseMenuCanvasのアクティブ状態が変化した場合にのみポーズを切り替え
+        if (pauseMenuCanvas.activeSelf != isPaused)
         {
-            TogglePause();
+            isPaused = pauseMenuCanvas.activeSelf;
+            UpdateTimeScale();
         }
     }
 
-    void TogglePause()
+    void UpdateTimeScale()
     {
         if (isPaused)
         {
-            Time.timeScale = 1f; // 時間を通常に戻す
-            isPaused = false;
-
-            // 必要に応じてUIやアニメーションの再開処理を追加
-            ResumeUIAnimations();
+            Time.timeScale = 0f; // ゲームを一時停止
+            PauseUIAnimations();
         }
         else
         {
-            Time.timeScale = 0f; // 時間を停止する
-            isPaused = true;
-
-            // 必要に応じてUIやアニメーションの停止処理を追加
-            PauseUIAnimations();
+            Time.timeScale = 1f; // ゲームを再開
+            ResumeUIAnimations();
         }
     }
 
