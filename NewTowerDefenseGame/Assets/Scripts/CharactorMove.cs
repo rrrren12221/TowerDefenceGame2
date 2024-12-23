@@ -80,4 +80,9 @@ public class CharactorMove : MonoBehaviour
             hitPoint.Damage(1);
         }
     }
+
+    public void DestroyEvent()
+    {
+        Destroy(gameObject);
+    }
 }
