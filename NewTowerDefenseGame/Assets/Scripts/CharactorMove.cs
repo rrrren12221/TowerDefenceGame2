@@ -53,13 +53,15 @@ public class CharactorMove : MonoBehaviour
             || collision.gameObject.tag == "Player" && type == TYPE.ENEMY)
         {
             isMove = false;
+            //攻撃をし始める
+            //攻撃のアニメーションの再生
+            anim.SetBool("Attack", true);
+            //相手のHPを削る
+            HitPoint hitPoint = collision.gameObject.GetComponent<HitPoint>();
+            StartCoroutine(AttackAction(hitPoint));
+            //倒すとまた前に進む
         }
-        //攻撃をし始める
-        //攻撃のアニメーションの再生
-        anim.SetBool("Attack", true);
-        //相手のHPを削る
-        HitPoint hitPoint = collision.gameObject.GetComponent<HitPoint>();
-        StartCoroutine(AttackAction(hitPoint));
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
